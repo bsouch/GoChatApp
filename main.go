@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/bsouch/GoChatApp/internal/database"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
@@ -53,6 +54,7 @@ func main() {
 
 	v1Router := chi.NewRouter()
 	v1Router.Get("/health", handlerReadiness)
+	v1Router.Post("/users/create", apiCfg.handlerCreateUsers)
 
 	router.Mount("/v1", v1Router)
 
