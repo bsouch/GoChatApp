@@ -20,16 +20,25 @@ func main() {
 	godotenv.Load(".env")
 
 	port := os.Getenv("PORT")
+	//port, err := getSecret("port")
+	/*
+		if err != nil {
+			log.Fatal("Getting PORT from secrets failed.")
+		}
+	*/
 	if port == "" {
 		log.Fatal("PORT is not found in the environment")
 	}
+	fmt.Printf("PORT in use: %v", port)
 
 	fmt.Printf("Running Web Server on Port: %v", port)
 
-	dbUrl := os.Getenv("DB_URL")
-	if dbUrl == "" {
-		log.Fatal("DB_URL is not found in the environment")
-	}
+	/*
+		dbUrl := os.Getenv("DB_URL")
+		if dbUrl == "" {
+			log.Fatal("DB_URL is not found in the environment")
+		}
+	*/
 
 	/*
 		conn, dbErr := sql.Open("postgres", dbUrl)

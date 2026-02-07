@@ -1,0 +1,19 @@
+services:
+  GoChatApp:
+    image: gochatapp:dev
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    expose:
+      - "8080"
+      - "8081"
+    secrets:
+      - port #Refers to a secret that can be found in a local, untracked file.
+    environment:
+      - SECRET_PATH=/run/secrets #Refers to the folder in the Docker container where secret files are placed.
+    env_file:
+      - .env #Identifies the environment variablesfile for pre-defined, non-sensitive local variables.
+
+secrets:
+  port:
+    file: ./port.txt #The untracked file that contains the runtime secret.
