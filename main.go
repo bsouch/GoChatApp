@@ -1,22 +1,21 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
-	"github.com/bsouch/GoChatApp/internal/database"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 )
 
-type apiConfig struct {
-	DB *database.Queries
-}
-
+/*
+	type apiConfig struct {
+		DB *database.Queries
+	}
+*/
 func main() {
 	godotenv.Load(".env")
 
@@ -32,16 +31,17 @@ func main() {
 		log.Fatal("DB_URL is not found in the environment")
 	}
 
-	conn, dbErr := sql.Open("postgres", dbUrl)
+	/*
+		conn, dbErr := sql.Open("postgres", dbUrl)
 
-	if dbErr != nil {
-		log.Fatal("Can't connect to Database")
-	}
+		if dbErr != nil {
+			log.Fatal("Can't connect to Database")
+		}
 
-	apiCfg := apiConfig{
-		DB: database.New(conn),
-	}
-
+		apiCfg := apiConfig{
+			DB: database.New(conn),
+		}
+	*/
 	router := chi.NewRouter()
 	router.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"https://*", "http://*"},
@@ -54,7 +54,7 @@ func main() {
 
 	v1Router := chi.NewRouter()
 	v1Router.Get("/health", handlerReadiness)
-	v1Router.Post("/users/create", apiCfg.handlerCreateUsers)
+	//v1Router.Post("/users/create", apiCfg.handlerCreateUsers)
 
 	router.Mount("/v1", v1Router)
 

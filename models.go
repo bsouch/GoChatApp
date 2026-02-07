@@ -3,7 +3,6 @@ package main
 import (
 	"time"
 
-	"github.com/bsouch/GoChatApp/internal/database"
 	"github.com/google/uuid"
 )
 
@@ -15,9 +14,11 @@ type User struct {
 	UpdatedAt time.Time
 }
 
+/*
 func dboUserToUser(dboUser database.User) User {
 	return User{
 		UserID:   dboUser.UserID,
 		UserName: dboUser.UserName,
 	}
 }
+*/

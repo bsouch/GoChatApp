@@ -1,14 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-
-	"github.com/bsouch/GoChatApp/internal/crypto"
-	"github.com/bsouch/GoChatApp/internal/database"
-	"github.com/google/uuid"
-)
-
+/*
 func (apiCfg apiConfig) handlerCreateUsers(w http.ResponseWriter, r *http.Request) {
 	//Deserialise request body
 	type parameters struct {
@@ -40,3 +32,4 @@ func (apiCfg apiConfig) handlerCreateUsers(w http.ResponseWriter, r *http.Reques
 
 	jsonResponse(w, http.StatusOK, dboUserToUser(dboUser))
 }
+*/

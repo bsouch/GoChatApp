@@ -24,7 +24,7 @@ func jsonResponse(writer http.ResponseWriter, statusCode int, payload interface{
 }
 
 func errorJsonResponse(writer http.ResponseWriter, statusCode int, errorMessage string) {
-	if statusCode >= 500 {
+	if statusCode >= http.StatusInternalServerError {
 		log.Printf("Responding with status code %v error:", errorMessage)
 	}
 
